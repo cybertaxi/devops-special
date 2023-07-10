@@ -22,6 +22,11 @@ The applications for deployment currently is as follows:
     ./main.sh
 ```
 
+Alternatively, you can run the script in it's individual module layer during developing after running main.sh.
+```
+    ./.bash/2_module_vpc_apply.sh
+```
+
 ## Future Improvements & Addons <a name="future_improvement"></a>
 - Implement monitoring on resources using popular monitoring tools like Grafana, Promethes or deploying the ELK stack.
 - Applying the SRE concept of SLO, SLI and SLA.
