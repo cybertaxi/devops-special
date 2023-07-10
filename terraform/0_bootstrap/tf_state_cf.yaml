@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  tfstatesBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      ObjectLockEnabled: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: 'AES256'
+      VersioningConfiguration:
+        Status: Enabled
+      BucketName: cybertaxi-tfstate-devops
+      Tags:
+        - Key: "Name"
+          Value: "S3 Remote Terraform State Store"
+
+  tflockDynamodb:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: tf-lock
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      AttributeDefinitions:
+        - AttributeName: LockID
+          AttributeType: S
+      KeySchema:
+        - AttributeName: LockID
+          KeyType: HASH
+      Tags:
+        - Key: "Name"
+          Value: "DynamoDB Terraform State Lock Table"

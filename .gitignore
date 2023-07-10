@@ -1,5 +1,13 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
+*.terraform.lock*
+.terraform
 
+# Local .terraform directories
+**/.terraform/*
+
+# sensitive creds
 sensitive/
+# Contains the deployment files wiht sensitive information that I dont wnat to reveal to the public
+temp/
