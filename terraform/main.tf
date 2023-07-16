@@ -15,9 +15,9 @@ terraform {
 }
 
 module "vpc_layer" {
-  source = "./1_vpc"
+  source = "./100_vpc"
 }
 
-# module "backend-1" {
-#   source = "terraform/1_vpc"
-# } 
+module "network_layer" {
+  source = "./200_network"
+}
