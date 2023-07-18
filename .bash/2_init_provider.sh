@@ -5,3 +5,4 @@ terraform init
 terraform apply -auto-approve -lock=false
 
 
+terraform output > ../sensitive/output/terraform-output.txt

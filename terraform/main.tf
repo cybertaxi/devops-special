@@ -21,3 +21,8 @@ module "vpc_layer" {
 module "network_layer" {
   source = "./200_network"
 }
+
+module "app_layer" {
+  source = "./900_app"
+  instance_sg_id = module.network_layer.rocketchat_app_security_group_id[0]
+}
